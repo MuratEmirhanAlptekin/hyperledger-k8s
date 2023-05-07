@@ -1,5 +1,10 @@
 # Hyperledger Fabric On Kubernetes
 
+
+You first need to clone hlf-operator locally from https://github.com/hyperledger/bevel-operator-fabric.git 
+and then go helm install hlf-operator ./chart/hlf-operator inside the repo
+kubectl krew install hlf to install hlf plugin 
+
 ### Namespace
 
 ```bash
@@ -25,7 +30,7 @@ kubectl hlf ca register --name=org1-ca --user=org1-peer1 --secret=peerpw --type=
 ```
 
 ```bash
-kubectl hlf peer create --storage-class=do-block-storage --enroll-id=org1-peer1 --mspid=Org1MSP --enroll-pw=peerpw --capacity=5Gi --name=org1-peer1 --ca-name=org1-ca.fabric --namespace=fabric --statedb=couchdb --version=2.4.1-v0.0.4
+kubectl hlf peer create --storage-class=do-block-storage --enroll-id=org2-peer2 --mspid=Org2MSP --enroll-pw=peerpw --capacity=5Gi --name=org2-peer2 --ca-name=org2-ca.fabric --namespace=fabric --statedb=couchdb --version=2.4.1-v0.0.4
 ```
 
 ```bash
@@ -37,8 +42,8 @@ kubectl get fabricpeers.hlf.kungfusoftware.es -A
 
 Go to a folder and save the outputs of these
 ```bash
-kubectl hlf ca register --name=org1-ca --user=admin --secret=adminpw --type=admin --enroll-id enroll --enroll-secret=enrollpw --mspid=Org1MSP --namespace=fabric
-kubectl hlf ca enroll --name=org1-ca --user=admin --secret=adminpw --ca-name ca  --output org1-peer.yaml --mspid=Org1MSP --namespace=fabric
+kubectl hlf ca register --name=org2-ca --user=admin --secret=adminpw --type=admin --enroll-id enroll --enroll-secret=enrollpw --mspid=Org2MSP --namespace=fabric
+kubectl hlf ca enroll --name=org2-ca --user=admin --secret=adminpw --ca-name ca  --output org2-peer.yaml --mspid=Org2MSP --namespace=fabric
 ```
 
 ### Orderer
