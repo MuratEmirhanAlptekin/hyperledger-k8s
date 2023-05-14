@@ -2,7 +2,7 @@ download: https://github.com/prometheus-operator/prometheus-operator/releases/do
 ```
 kubectl create -f bundle.yaml
 ```
-this installs the CRDs and deploys the operator
+this installs the CRDs and deploys the operator  
 you need serviceMonitors to define targets to be monitored in our case you edit the hlf CRDs with the following configs:
 ```
   serviceMonitor:
@@ -12,7 +12,10 @@ you need serviceMonitors to define targets to be monitored in our case you edit 
     sampleLimit: 0
     scrapeTimeout: 10s
 ```
-apply RBACrules in order to give access 
+apply RBACrules in order to give access  
+```
+kubectl apply -f RBACrules.yaml
+```
 apply prometheus.yaml with  
 ``` 
     serviceMonitorNamespaceSelector: {}
