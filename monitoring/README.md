@@ -22,7 +22,7 @@ apply prometheus.yaml with
     serviceMonitorSelector: {}
 ```
 this makes the prometheus select every serviceMonitor
-if you want it to select a certain label or a namespace specify it
+if you want it to select a certain label or a namespace specify it  
 and then we deploy the grafana with 
 ```
 kubectl apply -f grafana.yaml 
