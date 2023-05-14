@@ -3,7 +3,7 @@ download: https://github.com/prometheus-operator/prometheus-operator/releases/do
 kubectl create -f bundle.yaml
 ```
 this installs the CRDs and deploys the operator
-you need to define serviceMonitors to define targets to be monitored in our case you edit the hlf CRDs with the following configs:
+you need serviceMonitors to define targets to be monitored in our case you edit the hlf CRDs with the following configs:
 ```
   serviceMonitor:
     enabled: true
