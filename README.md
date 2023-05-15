@@ -93,3 +93,10 @@ kubectl hlf channel join --name=mychannel --config=networkConfig.yaml --user=adm
 ```bash
 kubectl hlf channel addanchorpeer --channel=mychannel --config=networkConfig.yaml --user=admin --peer=org1-peer1.fabric
 ```
+### cleanup the environment
+```bash
+kubectl delete fabricorderernodes.hlf.kungfusoftware.es --all-namespaces --all
+kubectl delete fabricpeers.hlf.kungfusoftware.es --all-namespaces --all
+kubectl delete fabriccas.hlf.kungfusoftware.es --all-namespaces --all
+kubectl delete fabricchaincode.hlf.kungfusoftware.es --all-namespaces --all
+```
