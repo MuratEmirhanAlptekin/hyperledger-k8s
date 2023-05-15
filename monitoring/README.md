@@ -16,7 +16,7 @@ apply RBACrules in order to give access
 ```
 kubectl apply -f RBACrules.yaml
 ```
-apply prometheus.yaml with  
+apply prometheus.yaml with 
 ``` 
     serviceMonitorNamespaceSelector: {}
     serviceMonitorSelector: {}
@@ -28,3 +28,11 @@ and then we deploy the grafana with
 kubectl apply -f grafana.yaml 
 ```
 for the datasource set it with the name of your prometheus-operated svc with the port 9090
+
+### cleanup the environment
+```
+kubectl delete -f grafana.yaml
+kubectl delete -f prometheus.yaml
+kubectl delete -f RBACrules.yaml
+kubectl delete -f bundle.yaml
+```
